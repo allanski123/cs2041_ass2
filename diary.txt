@@ -1,0 +1,35 @@
+Date:        start:       end:       activity:         changes:
+
+
+17/10/17     19:00	  20:00      read spec         set up files and get familiar with them !
+
+18/10/17     18:30        22:15      code/reading      understanding the supplied code and starting to implement levels. 
+                                                       Started logging in/out 
+
+19/10/17     20:00        23:45      coding/testing    Displays friends, posts (not in order yet), hides private details, log in/out working
+                                                       but very basic at the moment. Need to think about structure more and how I will redirect pages. 
+
+20/10/17     22:00        00:00      restructure       Rewrote code to properly redirect pages. Links to profile now work for friends and pictures are of suitable size.     
+
+21/10/17     13:00        16:30      coding/testing    Levels 0-1 done. Still need to do css layouts to make pages look better. (not a priority atm!)
+
+24/10/17     13:00        20:00      coding/testing    Displaying posts almost done, need to order by time - make it look better too with bootstrap.
+
+25/10/17     19:30        01:00      coding            Making posts now works ! Plan to get searching posts working tomorrow and finishing level 2
+
+26/10/17     13:30        17:30      coding/debug      Making posts, comments and replies now working. Just need to implement searching posts!
+
+26/10/17     18:30        23:00      coding            Searching posts now works! subset 0-2 almost fully done.
+
+27/10/17     12:30        16:30      coding            Deleting friends working. Will now start account creation and adding friends.
+
+27/10/17     23:00        03:00      coding/debug      Can now create accounts with confirmation via email.. Also added new login interface - remember to give credit for template
+
+28/10/17     10:00        13:00      coding            Person logged in can now update their profile information. 
+
+28/10/17     14:00        20:00      coding/debug      Changed code to move dataset into static. (bug with demo environment where couldnt load images) - fixed now
+
+Goal:                    
+1) Finish levels 0-2 minimum 
+2) Try to implement as many level 3 as I can
+3) I would try to finish all levels - but making choice to put aside time to study for finals    
