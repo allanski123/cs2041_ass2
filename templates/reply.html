@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+
+{{post_data[post_num][comm_num]['message']}}
+
+<form class="form-inline" method="POST" action="{{url_for('create_reply', username=username, post_num=post_num, comm_num=comm_num)}}">
+    <input style="height:200px; width:400px;" type="textfield" name="reply_post" placeholder="What's on your mind...?" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Post</button>
+</form>
+{% endblock %}

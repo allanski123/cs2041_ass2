@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+<h1>Search Results</h1>
+{% for i in results %}
+<p>
+<a href="{{url_for('profile', username=i[1])}}"><img src="{{url_for('static', filename=i[2])}}" width="40" height="40"> {{i[0]}} </a>
+{% endfor %}
+
+{% endblock %}

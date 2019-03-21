@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>unswtalk</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+    <div align="center">
+        <h2>UNSWtalk</h2>
+        <form method="POST" action="{{url_for('login')}}">
+            username: <input type="textfield" class="w-50 p-1" name="zid">
+            <p>
+            password: <input type="password" class="w-50 p-1" name="password">
+            <p>
+            <input style="width:100px" type="submit" value="login">
+        </form>
+        <form method="POST" action="">
+            <input style="width:100px" type="submit" value="register">
+        </form>
+    </div>
+</body>
+</html>

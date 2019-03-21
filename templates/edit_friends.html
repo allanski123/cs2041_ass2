@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+
+{% if not friends_list %}
+    <h1>You have no friends!</h1>
+{% endif %}
+{% for i in friends_list %}
+    <a href="{{url_for('profile', username=i[2])}}" class="list-group-item"><img src="{{url_for('static', filename=i[1])}}" width="40" height="40"> {{i[0]}} </a> 
+    <form class="form-inline" method="POST" action="{{url_for('delete_friend', username=i[2])}}">
+        <input type="submit" class="btn btn-danger btn-outline" value="Delete">
+    </form>
+{% endfor %}
+{% endblock %}

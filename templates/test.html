@@ -1,0 +1,118 @@
+<!doctype html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+
+    <title>UNSWtalk</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="narrow-jumbotron.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <header class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <form class="form-inline" method="POST" action="{{url_for('login')}}">
+                <input class="form-control mr-sm-2" type="textfield" name="zid" placeholder="username">
+                <input class="form-control mr-sm-2" type="password" name="password" placeholder="password">
+                <input type="submit" value="Login">
+              </form>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">UNSWtalk</h3>
+      </header>
+       
+      <main role="main">
+
+        <div class="jumbotron">
+          <h1 class="display-3">Create an account today!</h1>
+          <p class="lead">To get started, simply fill in the form below.</p>
+        </div>
+
+	<div class="container">
+
+	<div class="row">
+	    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+		<form method="POST" action="{{url_for('send_email')}}">
+			<h2>Please Sign Up Below!</h2>
+                        <h2><small>Enter your details in the form</small></h2>
+			<hr class="colorgraph">
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="1">
+					</div>
+				</div>
+			</div>
+			<div class="form-group">
+				<input type="text" name="student_zid" id="student_zid" class="form-control input-lg" placeholder="Student zid" tabindex="1">
+			</div>
+			<div class="form-group">
+				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="1">
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="signup_pw" id="signup_pw" class="form-control input-lg" placeholder="Password" tabindex="1">
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6 col-md-6">
+					<div class="form-group">
+						<input type="password" name="signup_pw_confirm" id="signup_pw_confirm" class="form-control input-lg" placeholder="Confirm Password" tabindex="1">
+			                        <hr class="colorgraph">
+					</div>
+				</div>
+			</div>
+                        <div class="row">
+				<div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="1"></div>
+                        </div>
+  	        </form> 
+	    </div>
+            
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">            
+		<form method="POST" action="{{url_for('send_password')}}">
+                    <h2>Forgot your password?</h2>
+	            <h2><small>Fill out the form below!</small></h2>
+	            <hr class="colorgraph">
+	            <div class="form-group">
+		        <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="Enter first name here..." tabindex="2">
+                    </div>
+	            <div class="form-group">
+		        <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Enter last name here..." tabindex="2">
+                    </div>
+	            <div class="form-group">
+		        <input type="text" name="zid" id="zid" class="form-control input-lg" placeholder="Enter zid here..." tabindex="2">
+                    </div>
+	            <div class="form-group">
+		        <input type="email" name="email_retrieve" id="email_retrieve" class="form-control input-lg" placeholder="Enter email here..." tabindex="2">
+                        <hr class="colorgraph">
+		    </div>
+		    <div class="row">
+			<div class="col-xs-12 col-md-6"><input type="submit" value="Send email" class="btn btn-primary btn-block btn-lg" tabindex="2"></div>
+		    </div>
+                </form>
+            </div>
+        </div>
+
+      </main>
+    </div> <!-- /container -->
+  </body>
+</html>

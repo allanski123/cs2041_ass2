@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+{% if username == session.get('zid') %}
+    <div class="list-group-item active">Profile<form method="POST" action="{{url_for('edit_profile', username=username)}}"><input type="submit" value="Edit"></form></div>
+{% else %}
+    <div class="list-group-item active">Profile</div>
+{% endif %}
+<div class="unswtalk_user_details">
+    <img src="{{url_for('static', filename=jpg)}}">
+
+    full_name: {{student_details[username]['full_name']}}
+{% for dets in student_details[username].keys()|sort if dets in ['zid', 'birthday', 'program', 'interests'] %}
+    {{dets}}: {{student_details[username][dets]}}
+{% endfor %}
+<div class="list-group">
+    {% if username == session.get('zid') %}
+        <div class="list-group-item active">Friends<form method="POST" action="{{url_for('edit_friends', username=username)}}"><input type="submit" value="Edit"></form></div>
+    {% else %}
+        <div class="list-group-item active">Friends</div>
+    {% endif %}
+    {% for i in friends_list %}
+        <a href="{{url_for('profile', username=i[2])}}" class="list-group-item"><img src="{{url_for('static', filename=i[1])}}" width="40" height="40"> {{i[0]}} </a>
+    {% endfor %}
+</div>
+<div class="list-group-item active">Posts</div>
+<form class="form-inline" method="POST" action="{{url_for('search_post')}}">
+    <input class="form-control mr-sm-2" type="textfield" name="post_search" placeholder="Search for posts..." aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+</form>
+
+<form method="POST" action="{{url_for('make_post', username=username)}}">
+    <input type="submit" class="btn btn-primary" value="Make Post">
+</form>
+{% for post_num in all_posts.keys() %}
+    post: {{all_posts[post_num]['message']}}
+    time: {{all_posts[post_num]['time']}}
+    <form method="POST" action="{{url_for('make_comment', username=username, post_num=post_num)}}">
+        <input type="submit" value="Make Comment" class="btn btn-outline-primary">
+    </form>
+    {% for comm_num in all_posts[post_num].keys() if comm_num not in ['from', 'longitude', 'time', 'latitude', 'message'] %}
+        message: {{all_posts[post_num][comm_num]['message']}}
+        time: {{all_posts[post_num][comm_num]['time']}}
+        <form method="POST" action="{{url_for('make_reply', username=username, post_num=post_num, comm_num=comm_num)}}">
+            <input type="submit" value="Make Reply" class="btn btn-outline-primary">
+        </form>
+        {% for reply_num in all_posts[post_num][comm_num].keys() if reply_num not in ['from', 'time', 'message'] %}
+            reply: {{all_posts[post_num][comm_num][reply_num]['message']}}
+            from: {{all_posts[post_num][comm_num][reply_num]['from']}}
+            time: {{all_posts[post_num][comm_num][reply_num]['time']}}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+</div>
+{% endblock %}

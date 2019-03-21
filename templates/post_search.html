@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+<h1>Search Results</h1>
+<div class="unswtalk_user_details">
+{% for i in a.keys() %}
+    {% for post_num in a[i].keys() %}
+        post: {{a[i][post_num]['message']}}
+        {% for comm_num in a[i][post_num].keys() if comm_num not in ['from', 'longitude', 'time', 'latitude', 'message'] %}
+            message: {{a[i][post_num][comm_num]['message']}}
+            {% for reply_num in a[i][post_num][comm_num].keys() if reply_num not in ['from', 'time', 'message'] %}
+                reply: {{a[i][post_num][comm_num][reply_num]['message']}}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+{% endfor %}
+</div>
+{% endblock %}

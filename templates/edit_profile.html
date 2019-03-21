@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block body_contents %}
+
+{% for dets in student_details[username].keys() if dets not in ['zid', 'interests'] %}
+    <br>{{dets}}: {{student_details[username][dets]}}</br>
+    <form class="form-inline" method="POST" action="{{url_for('update_profile', username=username)}}">
+        <input class="form-control mr-sm-2" type="textfield" name={{dets}} placeholder="New {{dets}}" aria-label="Update">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Update</button>
+    </form>
+{% endfor %}
+
+{% if "interests" in student_details[username] %}
+    <br>interests: {{student_details[username]['interests']}}</br>
+    <form class="form-inline" method="POST" action="{{url_for('update_profile', username=username)}}">
+        <input class="form-control mr-sm-2" type="textfield" name="interests" placeholder="New interests" aria-label="Update">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Update</button>
+    </form>
+{% else %}
+    <br>interests: unknown</br>
+    <form class="form-inline" method="POST" action="{{url_for('update_profile', username=username)}}">
+        <input class="form-control mr-sm-2" type="textfield" name="interests" placeholder="New interests" aria-label="Update">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Update</button>
+    </form>
+{% endif %}
+
+{% endblock %}

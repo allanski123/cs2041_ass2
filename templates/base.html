@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>unswtalk</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+<link href="{{url_for('static', filename='UNSWtalk.css')}}") rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <a href={{url_for('profile', username=session.get('zid'))}} class="navbar-brand"><h2>UNSWtalk</h2></a>
+  <form class="form-inline" method="POST" action="{{url_for('search')}}">
+    <input class="form-control mr-sm-2" type="textfield" name="search_name" placeholder="Search for friends..." aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+
+  <form method="POST" action="{{url_for('logout')}}">
+    <input type="submit" value="Logout" class="btn btn-outline-primary">
+  </form>
+</nav>
+
+{% block body_contents %}
+{% endblock %}
+
+</body>
+</html>
